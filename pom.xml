@@ -8,11 +8,7 @@
     <name>spider Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <repositories>
-        <repository>
-            <id>Nexus</id>
-            <name>Nexus Public Repository</name>
-            <url>http://10.11.85.17:8081/nexus/content/groups/public</url>
-        </repository>
+
         <repository>
             <id>maven.twttr.com</id>
             <name>Twitter Maven2 Repository</name>
