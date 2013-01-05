@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <display-name>reader</display-name>
+
+      <!-- 从RSS拉取文章列表任务 -->
+    <servlet>
+        <servlet-name>Jobs</servlet-name>
+        <servlet-class>com.spider.job.JobManager</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Jobs</servlet-name>
+        <url-pattern>/threadFix</url-pattern>
+    </servlet-mapping>
+
+    <!--<servlet>-->
+        <!--<servlet-name>queue</servlet-name>-->
+        <!--<servlet-class>com.spider.job.queue.QueueServlet</servlet-class>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>queue</servlet-name>-->
+        <!--<url-pattern>/queue/lpush</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <servlet>
+    <servlet-name>queue</servlet-name>
+    <servlet-class>com.spider.servlet.CheckServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HtmlServlet</servlet-name>
+        <servlet-class>com.spider.servlet.HtmlServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+    <servlet-name>queue</servlet-name>
+    <url-pattern>/spider/check</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>HtmlServlet</servlet-name>
+        <url-pattern>/spider/html</url-pattern>
+    </servlet-mapping>
+
+</web-app>
